@@ -1,0 +1,71 @@
+/**
+* @descripton sass工程存放变量的文件
+*/
+$bacGroundColor: #f5f5f5;
+// font style
+$fontsize12:12px;
+$fontsize14: 14px;
+$fontTitle:#000;
+$fontContent: #333;
+$fontContentGray: #666;
+$fontTitleLight:#999;
+$fontLightGrey: #aaa;
+$fontWhite:#fff;
+$themeColor: #0081f6;
+$fontOrange: #ff8800;
+$fontGreen:#22bb00;
+$fontRed:#ff0000;
+
+// bg and table style
+$globalBgColor:#eef1f5;
+$borderBottom:#ddd;
+$borderColor: #e6e6e6;
+$borderLightColor: #eee;
+$borderColorForGrayBg: #cccccc;
+$cancelBgColor: #e0e4e9;
+$disabledColor: #bbb;
+$disabledBgColor: #f9f9f9;
+
+// the chart style
+$running: #61c359;
+$linkColor: #ccc;
+$danger: #e64451;
+$purple: #9a5ab4;
+$chartCardGreen: #8dc255;
+$chartCardDeepGreen: #4dcfae;
+$chartCardBlue: #25aae6;
+$chartCardDeepBlue: #006699;
+$chartCardBgOrange: #ffaa00;
+$chartCardYellow:#ffee00;
+$catalogBgColor:rgba(0, 180,246,0.3);
+$applybgColor: rgba(0,63,91,0.6);
+$chartCardGrey: $cancelBgColor;
+$cardPanelBgColor: #f9f9f9;
+$grayBgColor: $cardPanelBgColor;
+
+
+// status Color (deep & light)
+$runningIcon: $running;
+$runningLighterIcon: #d5fbca;
+$errorIcon: $danger;
+$errorLighterIcon: #f8d4c8;
+$stopedIcon: #ababab;
+$stopedLighterIcon: #eeeeee;
+$otherIcon: #6e8096;
+$otherLighterIcon: #e3f0ff;
+$no-status: $fontWhite;
+$in-success: #79c762;
+
+//button style
+$buttonBlue: $themeColor;
+$buttonBlueHover:#1783ca;
+$buttonBlueDisabled:#add0e9;
+$buttonGray: $cancelBgColor;
+$buttonGrayHover:  $themeColor;
+$buttonGrayDisabled:#eceef3;
+$buttonOrange: $chartCardBgOrange;
+$buttonOrangeHover: $fontOrange;
+$buttonOrangeDisabled:#fed98e;
+$buttonSearch:#e8ebef;
+$buttonSearchHover: $themeColor;
+$buttonSearchDisabled:#eceef3;
