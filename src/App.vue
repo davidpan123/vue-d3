@@ -26,7 +26,8 @@ export default {
                 },
                 {
                     id: 2,
-                    name: '柱状图2'
+                    url: '/tree',
+                    name: '树状图'
                 }
             ]
         }
