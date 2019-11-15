@@ -4,7 +4,7 @@
         div.menuList
             div.menu-item(v-for="item in menuList" :key="item.id"
                 :class="{'active': curruntId === item.id}"
-                @click="goMenu(item.url)"
+                @click="goMenu(item.url, item.id)"
             ) {{item.name}}
     div.home-container
         <router-view/>
@@ -28,13 +28,24 @@ export default {
                     id: 2,
                     url: '/tree',
                     name: '树状图'
+                },
+                {
+                    id: 3,
+                    url: '/orchestrator',
+                    name: '编排'
+                },
+                {
+                    id: 4,
+                    url: '/learn',
+                    name: '练习'
                 }
             ]
         }
     },
     methods: {
-        goMenu (url) {
+        goMenu (url, id) {
             console.log(url)
+            this.curruntId = id
             this.$router.push(url)
         }
     }
