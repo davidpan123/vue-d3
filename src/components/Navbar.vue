@@ -1,5 +1,5 @@
 <template lang='pug'>
-   div.navbar-pane 000
+   div.navbar-pane 
 </template>
 <script>
 export default {

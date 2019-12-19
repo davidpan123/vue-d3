@@ -23,7 +23,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/tree.vue')
+      component: () => import(/* webpackChunkName: "tree" */ './views/tree.vue')
     },
     {
       path: '/orchestrator',
@@ -39,7 +39,31 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/learn.vue')
+      component: () => import(/* webpackChunkName: "learn" */ './views/learn.vue')
+    },
+    {
+      path: '/force',
+      name: 'force',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "force" */ './views/Force.vue')
+    },
+    {
+      path: '/relation',
+      name: 'relation',
+      // route level code-splitting
+      // this generates a separate chunk (relation.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "relation" */ './views/Relation.vue')
+    },
+    {
+      path: '/scatter',
+      name: 'scatter',
+      // route level code-splitting
+      // this generates a separate chunk (relation.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "relation" */ './views/scatter.vue')
     }
   ]
 })

@@ -2,23 +2,29 @@
     div.histogram-pane(:id='id')
         svg.histogram-container
             g.viewport
-                //- 画线方式1
-                g.lines
-                    line(x1="0" y1="0" x2="200" y2="0" stroke="red" stroke-width="2")
                 
 </template>
  
 <script>
+/**
+ * 散点图
+ */
 import * as d3 from 'd3'
 import { Uuid } from '@/util/common'
 export default {
-    name: 'learn',
+    name: 'scatter',
     data () {
         return {
             id: '',
             width: 0,
             height: 0,
-            margin: null
+            xAxisWidth: 300,
+            yAxisHeight: 300,
+            margin: null,
+            dataSet: [
+                [0.5, 0.5], [0.7, 0.8], [0.4, 0.9], [0.11, 0.32], [0.88, 0.25], 
+                [0.75, 0.12], [0.5, 0.1], [0.2, 0.3], [0.4, 0.1], [0.6, 0.7]
+            ]
         }
     },
     created () {
@@ -47,26 +53,33 @@ export default {
     methods: {
         draw () {
             let g = d3.select('g.viewport')
-            // 画线方式2
+            // 绘制坐标轴
+            let xscale = d3.scaleLinear().domain([0, 1.2 * d3.max(this.dataSet, d => {
+                return d[0]
+            })]).range([0, this.xAxisWidth])
+            let xAxis = d3.axisBottom(xscale)
             g.append('g')
-                .append('line')
-                .attr('x1', 120)
-                .attr('y1', 120)
-                .attr('x2', 300)
-                .attr('y2', 100)
-                .attr('class', 'lines2')
-                .attr('stroke', '#222333')
-            // 线段生成器1
-            let lines = [[10, 60], [40, 90], [60, 10], [190, 10]]
-            let linePaths = d3.line()
-            g.append('g').append('path').attr('d', linePaths(lines)).attr('stroke', 'black').attr('fill', 'none')
-            // 线段生成器2：指定x,y
-            let lines2 = [{ x: 20, y: 120 }, { x: 60, y: 120 }, { x: 100, y: 200 }]
-            let linePaths2 = d3.line().x(d => {
-                console.log(d)
-                return d.x
-            }).y(d => d.y)
-            g.append('g').append('path').attr('d', linePaths2(lines2)).attr('stroke', 'black').attr('fill', 'none')
+                .attr('transform', 'translate(' + 0 + ',' + this.yAxisHeight + ')')
+                .call(xAxis)
+
+            let yscale = d3.scaleLinear().domain([0, 1.2 * d3.max(this.dataSet, d => {
+                return d[1]
+            })]).range([this.yAxisHeight, 0])
+            let yAxis = d3.axisLeft(yscale)
+            g.append('g')
+                .attr('transform', 'translate(' + 0 + ',' + 0 + ')')
+                .call(yAxis)
+            
+            // 绘制散点图
+            let circle = g.selectAll('cricle').data(this.dataSet).enter().append('circle')
+            circle.attr('fill', 'black')
+                .attr('cx', d => {
+                    return xscale(d[0])
+                })
+                .attr('cy', d => {
+                    return this.yAxisHeight - yscale(d[1])
+                })
+                .attr('r', 5)
         }
     }
 }
@@ -80,9 +93,5 @@ export default {
 .histogram-container {
   width: 100%;
   height: 100%;
-}
-.lines2 {
-    stroke: aqua;
-    stroke-width: 1;
 }
 </style>

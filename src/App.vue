@@ -36,6 +36,21 @@ export default {
                 },
                 {
                     id: 4,
+                    url: '/force',
+                    name: '力导向图'
+                },
+                {
+                    id: 5,
+                    url: '/relation',
+                    name: '关系图'
+                },
+                {
+                    id: 6,
+                    url: '/scatter',
+                    name: '散点图'
+                },
+                {
+                    id: 7,
                     url: '/learn',
                     name: '练习'
                 }
